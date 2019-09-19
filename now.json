@@ -1,0 +1,17 @@
+{
+  "version": 2,
+  "env": {
+    "IS_NOW": "true"
+  },
+  "builds": [
+    {
+      "src": "./src/**/*.ts",
+      "use": "@now/node@canary"
+    }
+  ],
+  "routes": [
+    { "src": "/api/(.*)", "dest": "/src/backend/$1" },
+    { "src": "/sushi/(.*)", "dest": "/src/frontend/sushi?type=$1" },
+    { "src": "/(.*)", "dest": "/src/frontend/$1" }
+  ]
+}
